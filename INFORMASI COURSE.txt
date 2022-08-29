@@ -1,0 +1,3 @@
+project ini dibuat dengan mengikuti pengajaran dari website udemy 
+berjudul Next.js & React - The Complete Guide (incl. Two Paths!).
+Pematerinya bernama : Maximilian Schwarzmuller 
