@@ -1,4 +1,6 @@
 // berfungsi sebagai menampilkan halaman AllMeetups
+import MeetupList from "../components/meetups/MeetupList";
+
 const DUMMY_DATA = [
   {
     id: "m1",
@@ -24,9 +26,7 @@ function AllMeetupsPage() {
   return (
     <section>
       <h1> All Meetups</h1>
-      {DUMMY_DATA.map((data) => {
-        return <li key={data.id}>{data.title}</li>;
-      })}
+      <MeetupList meetups={DUMMY_DATA}/>
     </section>
   );
 }
