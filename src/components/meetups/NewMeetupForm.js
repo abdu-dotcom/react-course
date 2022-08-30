@@ -25,6 +25,9 @@ function NewMeetupForm(props) {
       description: enteredDescription
     };
 
+    // mengirim http request melalui NewMeetup.js
+    // data yang didapat dari form dikirim melalui props
+    // dan akan mengeksekusi addMeetupHandler() 
     props.onAddMeetup(meetupData);
   };
 
