@@ -1,13 +1,20 @@
-import Todo from "./components/Todo";
+// import Todo from "./components/Todo"; // TIdak digunakan
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AllMeetupsPage from "./pages/AllMeetups";
+import FavoritesPage from "./pages/Favorites";
+import NewMeetupPage from "./pages/NewMeetup";
 
 function App() {
+  // path menuju url aftar domain
+  //
   return (
-    <div className="App">
-      <h1>My Todos</h1>
-      <Todo text="Learn React" number="1" description="Lorem 1"/>
-      <Todo text="Master React" number="2" description="Lorem 2"/>
-      <Todo text="Explore the full React course" number="3"  description="Lorem 3"/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+        <Route path="/" element={<AllMeetupsPage/>}/>
+        <Route path="/new-meetup" element={<NewMeetupPage/>}/>
+        <Route path="/favorites" element={<FavoritesPage/>}/>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
