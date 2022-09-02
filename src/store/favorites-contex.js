@@ -4,13 +4,16 @@ import { createContext, useState } from "react";
 const FavoriteContext = createContext({
   favorites: [],
   totalFavorites: 0,
+  addFavorite: (favoriteMeetup) => {},
+  removeFavorite: (meetupId) => {},
+  itemIsFavorite: (meetupId) => {},
 });
 
 // ini akan menjadi regular react component
 // bertugas meyediakan cotext ke seluruh component
 // dan bertanggung jawab mengubah nilai context
 
-function FavoriteContextProvider(props) {
+export function FavoriteContextProvider(props) {
   const [userFavorites, setUserFavorites] = useState([]);
 
   function addFavoriteHandler(favoriteMeetup) {
@@ -24,17 +27,20 @@ function FavoriteContextProvider(props) {
   }
 
   function removeFavoriteHandler(meetupId) {
-    setUserFavorites(prevUserFavorites => {
-        return prevUserFavorites.filter(meetup => meetup.id !== meetupId);
-    })
+    setUserFavorites((prevUserFavorites) => {
+      return prevUserFavorites.filter((meetup) => meetup.id !== meetupId);
+    });
   }
   function itemIsFavoriteHandler(meetupId) {
-    return userFavorites.some(meetup => meetup.id === meetupId)
+    return userFavorites.some((meetup) => meetup.id === meetupId);
   }
 
   const context = {
     favorites: userFavorites,
     totalFavorites: userFavorites.length,
+    addFavorite: addFavoriteHandler,
+    removeFavorite: removeFavoriteHandler,
+    itemFavorite: itemIsFavoriteHandler,
   };
   return (
     <FavoriteContext.Provider value={context}>
@@ -42,3 +48,5 @@ function FavoriteContextProvider(props) {
     </FavoriteContext.Provider>
   );
 }
+
+export default FavoriteContext;

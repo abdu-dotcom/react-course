@@ -1,5 +1,5 @@
 // import Todo from "./components/Todo"; // TIdak digunakan
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import AllMeetupsPage from "./pages/AllMeetups";
 import FavoritesPage from "./pages/Favorites";
@@ -9,7 +9,6 @@ function App() {
   // path menuju url aftar domain
   //
   return (
-    <BrowserRouter>
       <Layout>
         <Routes>
           <Route path="/" element={<AllMeetupsPage />} />
@@ -17,7 +16,6 @@ function App() {
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
       </Layout>
-    </BrowserRouter>
   );
 }
 
